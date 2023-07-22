@@ -2,7 +2,7 @@ import UserToken from "../../models/userToken.js"
 
 export const logout = async (req, res) => {
 
-    const { refreshToken } = req.body
+    const refreshToken = req.header("x-refresh-token")
 
     try {
 
@@ -10,7 +10,7 @@ export const logout = async (req, res) => {
 
         if(!userToken) return res.status(200).json({error: false, message: "logged out successfully"})
 
-        await userToken.remove()
+        await userToken.deleteOne()
 
         res.status(200).json({error: false, message: "logged out successfully"})
 
