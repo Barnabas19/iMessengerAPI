@@ -2,7 +2,7 @@ import verifyRefreshToken from "../../utils/verifyRefreshToken.js"
 
 export const getAccessToken = async (req, res) => {
 
-    const { refreshToken } = req.body
+    const refreshToken = req.header('refresh-token')
 
     verifyRefreshToken(refreshToken)
     .then(({ tokenDetails }) => {

@@ -11,7 +11,7 @@ const auth = async (req, res, next) => {
             process.env.ACCESS_TOKEN_PRIVATE_KEY
         )
 
-        req.userTokenDetails = tokenDetails
+        req.userTokenDetails = tokenDetails    //decoded token
         next()
 
     } catch(error){

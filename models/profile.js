@@ -5,9 +5,9 @@ const profileSchema = mongoose.Schema({
     location: { type: String, required: true },
     interests: { type: String, required: true },
     photo: { type: Buffer, required: false },
-    friends: { type: String, required: false },
-    sentFriendRequests: { type: String, required: false },
-    receivedFriendRequests: { type: String, required: false },
+    friends: { type: [], required: false },
+    sentFriendRequests: { type: [], required: false },
+    receivedFriendRequests: { type: [], required: false },
     _id: {
         type: String,
     }
