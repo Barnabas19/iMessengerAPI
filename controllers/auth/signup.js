@@ -1,6 +1,10 @@
+import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 import User from '../../models/user.js'
-import Profile from '../../models/profile.js'
+import Network from '../../models/network.js'
+
+import { profileSchema } from '../../models/profile.js'
+const Profile = mongoose.model("Profile", profileSchema)
 
 
 export const signup = async (req, res) => {
@@ -23,6 +27,10 @@ export const signup = async (req, res) => {
             location: location,
             interests: interests,
             photo: photo,
+            _id: user._id
+        })
+
+        const network = await Network.create({
             _id: user._id
         })
 

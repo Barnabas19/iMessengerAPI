@@ -7,6 +7,15 @@ import authRoutes from './routes/auth.js'
 import refreshTokenRoutes from './routes/refreshToken.js'
 import userRoutes from './routes/users.js'
 
+//delete
+// import Network from './models/network.js'
+// import User from './models/user.js'
+// import UserToken from './models/userToken.js'
+// import { profileSchema } from "./models/profile.js"
+// const Profile = mongoose.model("Profile", profileSchema)
+
+
+
 const app = express()
 
 const upload = multer({ dest: "uploads/" });
@@ -23,5 +32,12 @@ const CONNECTION_URL = process.env.CONNECTION_URL
 const PORT = process.env.PORT || 3000
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-     .then(() => app.listen(PORT, () => console.log(`Server running on port ${PORT}`)))
+     .then(() => app.listen(PORT, () => {
+          console.log(`Server running on port ${PORT}`)
+
+          // await Network.deleteMany()
+          // await User.deleteMany()
+          // await UserToken.deleteMany()
+          // await Profile.deleteMany()
+     }))
      .catch((error) => console.log(error.message))
