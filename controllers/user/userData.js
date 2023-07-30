@@ -63,9 +63,10 @@ export const getUserDetails = async (req, res) => {
     const details = {
         name: null,
         photo: null,
+        notifications: null,
         friends: null,
         sentFriendRequests: null,
-        receivedFriendRequests: null
+        receivedFriendRequests: null,
     }
 
     try {
@@ -74,6 +75,7 @@ export const getUserDetails = async (req, res) => {
 
         details.name = userProfile.name
         details.photo = userProfile.photo
+        details.notifications = userProfile.notifications
         details.friends = userNetwork.friends
         details.sentFriendRequests = userNetwork.sentFriendRequests
         details.receivedFriendRequests = userNetwork.receivedFriendRequests

@@ -5,6 +5,7 @@ export const profileSchema = mongoose.Schema({
     location: { type: String, required: true },
     interests: { type: String, required: true },
     photo: { type: Buffer, required: false },
+    notifications: { type: [ Object ], required: false },
     _id: {
         type: String,
     }
